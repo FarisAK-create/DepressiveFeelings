@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg bg-dark bg-gradient py-3"
+      data-bs-theme="dark"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="bi bi-cup-hot"> </i> KROGER CAFE</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#reservasi">Reservasi</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero bg-dark-subtle">
+      <div class="container py-5 pb-5">
+        <div class="row align-items-center g-3">
+          <!-- KOLOM 1 -->
+          <div class="col-md">
+            <h2 style="color: rgb(68, 63, 68)">
+              Cita Rasa Kopi Otentik <br /><span style="color: #7e6666"
+                >& Suasana Hangat</span
+              >
+            </h2>
+            <p class="py-3">
+              Selamat datang di Kroger Cafe, tempat di mana setiap cangkir kopi
+              diracik dari biji pilihan berkulitas tinggi untuk menemani setiap
+              cerita Anda. Baik untuk memulai pagi dengan semangat,
+              menyelesaikan pekerjaan di tengah suasana yang tenang, maupun
+              berkumpul santai bersama teman dan keluarga, kami siap menyajikan
+              racikan kopi terbaik serta hidangan lezat yang siap memanjakan
+              lidah Anda.
+            </p>
+            <div class="py-3">
+              <a href="#menu" class="btn btn-secondary px-4 py-2"> Menu </a>
+              <a href="#reservasi" class="btn btn-outline-dark px-4 py-2">
+                Reservasi
+              </a>
+            </div>
+          </div>
+
+          <!-- KOLOM 2 -->
+          <div class="col-md text-end">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1674406102318-c9d362ad510b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y29mZmVlJTIwYmxhY2slMjBiYWNrZ3JvdW5kJTIwZ3JleXxlbnwwfHwwfHx8MA%3D%3D"
+              alt="KROGER Kafe"
+              class="img-fluid rounded-4"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section About -->
+    <section id="about" class="About py-5 bg-body-secondary">
+      <div class="container text-center col-7">
+        <p style="color: #7e6666" class="fw-bold fs-4">ABOUT US</p>
+        <h2 class="fw-bold fs-2 py-2">
+          Nikmati Setiap Tetesan Kopi <br /><span style="color: #3d2d2d"
+            >Tiada Tanding</span
+          >
+        </h2>
+        <p class="text-muted fs-6 mb-3">
+          Kroger Cafe hadir membawa pengalaman minum kopi yang berbeda. Kami
+          menyeduh setiap cangkir dengan dedikasi tinggi, menggabungkan biji
+          kopi lokal terbaik dengan keahlian para barista berpengalaman.
+        </p>
+
+        <p class="text-muted fs-6 mb-0">
+          Lebih dari sekadar tempat minum kopi, kami menciptakan ruang yang
+          nyaman untuk Anda berbagi cerita, bekerja, atau sekadar melepas penat
+          di tengah kesibukan harian.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section Card -->
+    <section id="menu" class="menu bg-dark-subtle py-4">
+      <section class="container">
+        <p style="color: #7e6666" class="fw-bold fs-4 text-center">
+          PILIHAN REKOMENDASI
+        </p>
+        <h2 class="fw-bold fs-2 py-2 text-center">
+          Menu Favorit <span style="color: #3d2d2d">KROGER CAFE</span>
+        </h2>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card rounded-4 h-100">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1723781045631-39648b2c97cf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D"
+                class="card-img-top"
+                style="object-fit: cover; height: 200px"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="fw-bold fs-5">Coffe Latte</h3>
+                <p class="card-text text-muted fs-7">
+                  Perpaduan harmonis espresso mantap dengan steamed milk yang
+                  lembut dan lapisan busa tipis di atasnya..
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card rounded-4 h-100">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1675435644687-562e8042b9db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlfGVufDB8fDB8fHww"
+                class="card-img-top"
+                style="object-fit: cover; height: 200px"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="fw-bold fs-5">Americano Warmth</h3>
+                <p class="card-text text-muted fs-7">
+                  Ekstraksi espresso murni dengan tambahan air panas,
+                  menghadirkan aroma kopi yang kuat dan menyegarkan.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card rounded-4 h-100">
+              <img
+                src="https://images.unsplash.com/photo-1579888071069-c107a6f79d82?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGljZWQlMjBhcmVuJTIwbGF0dGV8ZW58MHx8MHx8fDA%3D"
+                class="card-img-top"
+                style="object-fit: cover; height: 200px"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="fw-bold fs-5">Iced Aren Latte</h3>
+                <p class="card-text text-muted fs-7">
+                  Kesegaran kopi susu kekinian dengan rasa manis alami dari gula
+                  aren asli pilihan.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card rounded-4 h-100">
+              <img
+                src="https://media.istockphoto.com/id/2284593529/photo/tasty-french-fries-with-ketchup-on-light-grey-table-closeup.webp?a=1&b=1&s=612x612&w=0&k=20&c=hnCevleEuJOH4t1PZcm7A9TdyAtj6qupcriXw8oTSJA="
+                class="card-img-top"
+                style="object-fit: cover; height: 200px"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="fw-bold fs-5">Golden Crispy Fries</h3>
+                <p class="card-text text-muted fs-7">
+                  Kentang goreng renyah di luar dan lembut di dalam, disajikan
+                  dengan saus spesial racikan kafe.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card rounded-4 h-100">
+              <img
+                src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNhZmUlMjBmb29kfGVufDB8fDB8fHww"
+                class="card-img-top"
+                style="object-fit: cover; height: 200px"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="fw-bold fs-5">Avocado Egg Toast</h3>
+                <p class="card-text text-muted fs-7">
+                  Roti panggang gandum dengan lapisan alpukat segar dan telur
+                  mata sapi setengah matang yang gurih.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card rounded-4 h-100">
+              <img
+                src="https://images.unsplash.com/photo-1671522635398-a2443699d32e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhZmUlMjBmb29kfGVufDB8fDB8fHww"
+                class="card-img-top"
+                style="object-fit: cover; height: 200px"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="fw-bold fs-5">Classic Eggs Benedict</h3>
+                <p class="card-text text-muted fs-7">
+                  Poached egg di atas daging panggang empuk dan roti, disiram
+                  saus hollandaise yang creamy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Section Reservasi -->
+    <section id="reservasi" class="reservasi py-5 bg-body-secondary">
+      <div class="container">
+        <p style="color: #7e6666" class="fw-bold fs-3 text-center">RESERVASI</p>
+        <h2 class="fw-bold fs-2 py-2 text-center">
+          Amankan Tempat Favorit Anda
+        </h2>
+        <p class="text-muted fs-6 mb-3 text-center">
+          Isi Form berikut untuk melakukan pemenasan tempat dengan cepat
+        </p>
+
+        <form class="m-auto col-9">
+          <!-- Nama -->
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label fw-bold"
+              >Nama Lengkap</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Masukkan Nama Anda..."
+            />
+          </div>
+          <!-- Nomer Whatsapp -->
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label fw-bold"
+              >Nomer WhatsApp</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Masukkan No.WhatsApp..."
+            />
+          </div>
+          <!-- Tanggal -->
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label fw-bold"
+              >Tanggal Reservasi</label
+            >
+            <input
+              type="datetime-local"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Masukkan No.WhatsApp..."
+            />
+          </div>
+          <!-- Jumlah Orang -->
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label fw-bold"
+              >Jumlah Orang</label
+            >
+
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Pilih Jumlah Orang</option>
+              <option value="1-2">1 - 2 Orang</option>
+              <option value="3-4">3 - 4 Orang</option>
+              <option value="5-7">5 - 7 Orang</option>
+              <option value="8-10">8 - 10 Orang</option>
+              <option value="10+">Diatas 10+ Orang</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-secondary">
+            Konfirmasi Reservasi
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section Lokasi -->
+    <section class="lokasi bg-dark-subtle py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h2 class="fw-bold fs-4 py-2">
+              <i class="bi bi-cup-hot"> </i>
+              <span style="color: #7e6666">KONTAK</span> Kroger Cafe
+            </h2>
+            <p class="text-muted fs-6 mb-3">
+              Lebih dari sekadar tempat minum kopi, tetapi tempat nyaman untuk
+              Anda berbagi cerita, bekerja, atau sekadar melepas penat di tengah
+              kesibukan harian.
+            </p>
+
+            <div class="mb-3">
+              <h6>Jam Operasional:</h6>
+              <p class="text-muted fs-6 mb-3">Senin - Jum'at : 08.00 - 23.00</p>
+              <p class="text-muted fs-6 mb-3">Sabtu - Minggu : 06.00 - 00.00</p>
+            </div>
+
+            <div class="mb-3">
+              <h6>Lokasi & Kontak</h6>
+              <p class="text-muted fs-6 mb-3">
+                Jl. Kusuma No.12, Yogyakarta, DI Yogyakarta
+              </p>
+              <p class="text-muted fs-6 mb-3">+62 831-4531-5193</p>
+            </div>
+          </div>
+
+          <div class="col-md-8 text-end">
+            <div class="card rounded-4 h-100">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.8882159391546!2d110.37862287404407!3d-7.80165779221855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a579ceebe1279%3A0x7808ad25aa525803!2sSMTI%20Yogyakarta%20Vocational%20High%20School!5e0!3m2!1sen!2sid!4v1789627221778!5m2!1sen!2sid"
+                width="100%"
+                height="300"
+                style="border: 0; border-radius: 10px"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <p class="bg-dark bg-gradient py-3 text-center text-white fs-8">
+        @2026 | Build By Faris Abqori Kurniawan
+      </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
