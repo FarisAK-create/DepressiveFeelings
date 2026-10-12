@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ruang Rehat — Depressive Feelings</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#542d3c;--pink:#b45f78;--pink-dark:#8f4059;--blush:#fff1f5;--lav:#eee9ff;--cream:#fffafd;--line:#ead9df;--muted:#806b73;--sage:#d9eadf}
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#fff8fa 0%,#fffafd 48%,#f8f5ff 100%);font-family:"DM Sans",sans-serif;color:var(--ink)}
+    .navbar{background:rgba(255,250,253,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .brand-mark{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:12px;background:var(--blush);color:var(--pink);font-size:20px;margin-right:9px}
+    .navbar-brand{font-weight:800;color:var(--ink)!important;letter-spacing:-.4px}
+    .nav-link{color:var(--muted);font-weight:600}
+    .nav-link.active,.nav-link:hover{color:var(--pink)!important}
+    .hero{padding:62px 0 26px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fce8ee;color:var(--pink-dark);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.04;letter-spacing:-.055em;font-weight:800;margin:18px 0 16px}
+    .gradient-text{background:linear-gradient(100deg,var(--pink),#8e78c8);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead-copy{color:var(--muted);max-width:650px;line-height:1.8}
+    .game-shell{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:28px;box-shadow:0 22px 70px rgba(111,62,81,.10);overflow:hidden}
+    .game-topbar{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,250,253,.9)}
+    .dots{display:flex;gap:5px}.dots span{height:8px;width:8px;border-radius:50%;background:#e9b7c7}.dots span:nth-child(2){background:#e9d7a5}.dots span:nth-child(3){background:#b8d9c5}
+    .game-stage{position:relative;min-height:440px;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 50% 18%,#fff 0%,#fff8fc 34%,#f0eaff 100%)}
+    .star{position:absolute;color:#d6b8df;animation:twinkle 2.8s ease-in-out infinite}
+    .star.s1{left:10%;top:14%;font-size:24px}.star.s2{right:13%;top:20%;font-size:19px;animation-delay:.7s}.star.s3{right:22%;top:55%;font-size:14px;animation-delay:1.2s}.star.s4{left:20%;top:61%;font-size:16px;animation-delay:.3s}
+    @keyframes twinkle{0%,100%{opacity:.45;transform:scale(.85)}50%{opacity:1;transform:scale(1.18)}}
+    .window{position:absolute;left:7%;top:8%;width:96px;height:116px;border:6px solid #fff;border-radius:22px;background:linear-gradient(135deg,#d9efff,#f4eaff);box-shadow:0 8px 20px #c6b3d833}
+    .window:before,.window:after{content:"";position:absolute;background:#fff}.window:before{width:5px;height:100%;left:50%;top:0;transform:translateX(-50%)}.window:after{height:5px;width:100%;top:50%;left:0;transform:translateY(-50%)}
+    .shelf{position:absolute;right:6%;top:12%;width:96px;height:10px;background:#d7b7a8;border-radius:5px;box-shadow:0 10px 0 -2px #ead4c9}
+    .plant{position:absolute;right:8%;top:0;font-size:42px;transform:translateY(20px)}
+    .floor{position:absolute;bottom:0;left:0;right:0;height:24%;background:linear-gradient(180deg,#eadff7,#e5d7f0);border-top:4px solid #fff}
+    .rug{position:absolute;bottom:6%;left:50%;transform:translateX(-50%);width:min(390px,70%);height:50px;border-radius:50%;background:#d7c8ee;opacity:.8}
+    .buddy-wrap{position:absolute;left:50%;bottom:15%;transform:translateX(-50%);width:160px;height:250px;touch-action:none;cursor:grab;user-select:none;transition:filter .2s}
+    .buddy-wrap:active{cursor:grabbing}
+    .buddy-wrap.wobble{animation:wobble .42s ease}
+    @keyframes wobble{0%,100%{transform:translateX(-50%) rotate(0)}25%{transform:translateX(calc(-50% - 9px)) rotate(-7deg)}55%{transform:translateX(calc(-50% + 7px)) rotate(6deg)}80%{transform:translateX(calc(-50% - 3px)) rotate(-3deg)}}
+    .buddy-shadow{position:absolute;bottom:-2px;left:24px;width:112px;height:18px;border-radius:50%;background:#9e84bd55;filter:blur(3px)}
+    .buddy{position:absolute;inset:0}
+    .buddy-head{position:absolute;top:12px;left:24px;width:112px;height:105px;border-radius:46% 46% 43% 43%;background:linear-gradient(145deg,#fff 0%,#f6e9ee 100%);border:3px solid #e6cbd5;box-shadow:inset -9px -8px 0 #e8d3dd}
+    .ear{position:absolute;top:0;width:30px;height:32px;background:#f8edf1;border:3px solid #e6cbd5;border-radius:50% 50% 35% 35%;z-index:-1}.ear.left{left:31px;transform:rotate(-22deg)}.ear.right{right:31px;transform:rotate(22deg)}
+    .eye{position:absolute;top:43px;width:9px;height:13px;border-radius:50%;background:#604451}.eye.left{left:31px}.eye.right{right:31px}
+    .cheek{position:absolute;top:61px;width:20px;height:10px;border-radius:50%;background:#efb9ca99}.cheek.left{left:15px}.cheek.right{right:15px}
+    .mouth{position:absolute;top:65px;left:50%;width:15px;height:8px;border-bottom:3px solid #916477;border-radius:0 0 50% 50%;transform:translateX(-50%)}
+    .body-shape{position:absolute;top:109px;left:38px;width:84px;height:88px;border-radius:35px 35px 28px 28px;background:linear-gradient(135deg,#f7d5e2,#e9c6f4);border:3px solid #e6cbd5;box-shadow:inset -8px -6px 0 #dcb9e7}
+    .belly{position:absolute;left:50%;top:22px;transform:translateX(-50%);width:43px;height:39px;background:#fff4f8;border-radius:50%;opacity:.9}
+    .arm{position:absolute;top:122px;width:27px;height:69px;border-radius:20px;background:#f4d8e4;border:3px solid #e6cbd5;transform-origin:top center}.arm.left{left:20px;transform:rotate(24deg)}.arm.right{right:20px;transform:rotate(-24deg)}
+    .leg{position:absolute;top:181px;width:30px;height:57px;border-radius:18px;background:#f4d8e4;border:3px solid #e6cbd5}.leg.left{left:42px;transform:rotate(7deg)}.leg.right{right:42px;transform:rotate(-7deg)}
+    .tool-tray{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:16px;background:#fffafd;border-top:1px solid var(--line)}
+    .tool-btn{border:1px solid var(--line);background:white;border-radius:16px;padding:10px 14px;color:var(--ink);font-weight:700;transition:.2s;min-width:86px}
+    .tool-btn:hover,.tool-btn.active{background:var(--blush);border-color:#dca5b7;transform:translateY(-2px)}
+    .tool-btn .emoji{display:block;font-size:23px;margin-bottom:3px}
+    .game-options{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px 16px;background:#fffafd;border-top:1px solid var(--line)}
+    .option-label{font-size:.78rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+    .mini-select{border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#fff;color:var(--ink);font-size:.85rem;font-weight:600}
+    .inventory{display:flex;gap:8px;flex-wrap:wrap;padding:14px 16px;background:#fff;border-top:1px solid var(--line)}
+    .inventory-btn{border:1px solid var(--line);background:#fff;border-radius:13px;padding:8px 11px;font-size:.84rem;font-weight:700;color:var(--ink)}
+    .inventory-btn:hover{background:#f4efff}
+    .inventory-btn.active{border-color:#bba9e7;background:#f4efff}
+    .game-stage.theme-sunset{background:radial-gradient(ellipse at 50% 18%,#fff 0%,#fff3e9 34%,#f7dff0 100%)}
+    .game-stage.theme-ocean{background:radial-gradient(ellipse at 50% 18%,#fff 0%,#e9f8ff 34%,#d9e9ff 100%)}
+    .game-stage.theme-night{background:radial-gradient(ellipse at 50% 18%,#f7f2ff 0%,#e7e0ff 34%,#c9c1ed 100%)}
+    .game-stage.theme-garden{background:radial-gradient(ellipse at 50% 18%,#fff 0%,#f1ffef 34%,#dcefe1 100%)}
+    .buddy-wrap.party{animation:partyHop .55s ease}
+    @keyframes partyHop{0%,100%{translate:0 0}35%{translate:0 -28px}65%{translate:0 -8px}}
+    .buddy-wrap.spin{animation:spinBuddy .6s ease}
+    @keyframes spinBuddy{0%{rotate:0}100%{rotate:360deg}}
+    .buddy-wrap.squash{animation:squashBuddy .42s ease}
+    @keyframes squashBuddy{0%,100%{scale:1}45%{scale:1.18 .76}75%{scale:.92 1.08}}
+    .stage-prop{position:absolute;z-index:3;cursor:pointer;user-select:none;touch-action:manipulation;filter:drop-shadow(0 4px 5px #725b8a22);transition:transform .2s}
+    .stage-prop:hover{transform:scale(1.15) rotate(-8deg)}
+    .stage-prop.used{animation:propPop .45s ease}
+    @keyframes propPop{0%,100%{scale:1}50%{scale:1.45;rotate:15deg}}
+    .challenge-banner{font-size:.82rem;font-weight:700;color:#6e5a9c;background:#f5f0ff;border-radius:12px;padding:9px 12px}
+    .game-stage .floor{transition:background .25s}
+    .control-row{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:13px 18px;background:#fff;border-top:1px solid var(--line);flex-wrap:wrap}
+    .score-pill{border-radius:999px;padding:8px 13px;background:#f5f0ff;color:#6e5a9c;font-weight:800;font-size:.86rem}
+    .btn-soft{background:var(--pink);border-color:var(--pink);color:#fff;font-weight:700}.btn-soft:hover{background:var(--pink-dark);border-color:var(--pink-dark);color:#fff}
+    .side-card{height:100%;border:1px solid var(--line);border-radius:24px;background:#fffafd;box-shadow:0 14px 40px #6f3e510d}
+    .icon-bubble{width:46px;height:46px;display:grid;place-items:center;border-radius:15px;background:var(--blush);font-size:22px;flex-shrink:0}
+    .note-card{background:linear-gradient(135deg,#fff2f6,#f2edff);border:1px solid var(--line);border-radius:20px}
+    .footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+    .toast-note{position:absolute;top:18px;left:50%;transform:translateX(-50%) translateY(-10px);opacity:0;background:#fff;border:1px solid var(--line);box-shadow:0 8px 25px #542d3c16;padding:9px 14px;border-radius:999px;font-size:.85rem;font-weight:700;transition:.25s;pointer-events:none;white-space:nowrap;z-index:5}
+    .toast-note.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .float-item{position:absolute;font-size:32px;z-index:4;pointer-events:none;animation:floatUp .85s ease-out forwards}
+    @keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(.6) rotate(0)}20%{opacity:1}100%{opacity:0;transform:translateY(-95px) scale(1.25) rotate(25deg)}}
+    @media(max-width:767px){.hero{padding-top:42px}.game-stage{min-height:390px}.buddy-wrap{transform:translateX(-50%) scale(.88);transform-origin:bottom center}.window{width:70px;height:88px}.plant{font-size:32px}.game-topbar{padding:13px}.tool-btn{min-width:74px;padding:8px 10px;font-size:.8rem}.tool-btn .emoji{font-size:20px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+    .buddy-wrap.punch-reaction{animation:punchReaction .38s cubic-bezier(.2,.8,.2,1)}
+    @keyframes punchReaction{0%{transform:translateX(-50%) rotate(0) scale(1)}18%{transform:translateX(calc(-50% + 22px)) rotate(13deg) scale(1.04,.94)}42%{transform:translateX(calc(-50% - 18px)) rotate(-12deg) scale(.96,1.05)}68%{transform:translateX(calc(-50% + 8px)) rotate(5deg)}100%{transform:translateX(-50%) rotate(0) scale(1)}}
+    .buddy-wrap.punch-reaction .arm.left{animation:armPunch .38s ease}
+    .buddy-wrap.punch-reaction .arm.right{animation:armPunch .38s ease reverse}
+    @keyframes armPunch{0%,100%{rotate:0deg}35%{rotate:35deg}}
+    .impact-flash{position:absolute;z-index:8;pointer-events:none;font-size:clamp(28px,5vw,48px);font-weight:900;color:#b45f78;text-shadow:0 3px 0 #fff;animation:impactFlash .55s ease-out forwards}
+    @keyframes impactFlash{0%{opacity:0;transform:translate(-50%,-50%) scale(.25) rotate(-18deg)}35%{opacity:1;transform:translate(-50%,-50%) scale(1.2) rotate(8deg)}100%{opacity:0;transform:translate(-50%,-85%) scale(.8) rotate(14deg)}}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#top"><span class="brand-mark">♡</span>Depressive <span style="color:var(--pink);margin-left:5px">Feelings</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Buka navigasi"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <div class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <a class="nav-link" href="#about">Tentang</a><a class="nav-link active" href="#game">Ruang Rehat</a><a class="nav-link" href="#care">Pengingat</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-9">
+        <span class="eyebrow">✦ Ruang kecil untuk jeda</span>
+        <h1>Tarik napas.<br><span class="gradient-text">Main sebentar.</span></h1>
+        <p class="lead-copy mb-0">Selamat datang di Ruang Rehat — tempat untuk mengambil jeda, mencoba hal sederhana, dan memberi ruang bagi dirimu sendiri. Tidak harus buru-buru. Kamu bisa berhenti kapan saja.</p>
+      </div>
+      <div class="col-lg-3 text-lg-end"><div class="d-inline-flex align-items-center gap-2 p-3 rounded-4" style="background:#fff;border:1px solid var(--line)"><span style="font-size:27px">🌷</span><div class="text-start"><div class="fw-bold">Waktu untuk diri sendiri</div><small style="color:var(--muted)">Pelan-pelan saja ♡</small></div></div></div>
+    </div>
+  </div>
+</header>
+
+<main class="container pb-5" id="game">
+  <div class="row g-4">
+    <div class="col-lg-8">
+      <section class="game-shell" aria-label="Permainan interaktif Ruang Rehat">
+        <div class="game-topbar"><div class="d-flex align-items-center gap-3"><div class="dots"><span></span><span></span><span></span></div><strong>Ruang Rehat <span style="color:var(--pink)">/ mini game</span></strong></div><span class="badge rounded-pill text-bg-light border">Versi demo</span></div>
+        <div class="game-stage" id="stage" aria-label="Area permainan">
+          <span class="star s1">✦</span><span class="star s2">✧</span><span class="star s3">✦</span><span class="star s4">✧</span>
+          <div class="window"></div><div class="shelf"></div><div class="plant">🪴</div>
+          <div class="rug"></div><div class="floor"></div>
+          <button class="stage-prop" style="left:18%;bottom:17%;font-size:31px;background:none;border:0" data-prop="🧸" aria-label="Mainkan boneka kecil">🧸</button>
+          <button class="stage-prop" style="right:18%;bottom:18%;font-size:29px;background:none;border:0" data-prop="🎈" aria-label="Mainkan balon">🎈</button>
+          <button class="stage-prop" style="right:11%;bottom:35%;font-size:25px;background:none;border:0" data-prop="🪄" aria-label="Gunakan tongkat ajaib">🪄</button>
+          <div class="toast-note" id="toastNote" role="status" aria-live="polite">Bagus, lanjutkan dengan santai ♡</div>
+          <div class="buddy-wrap" id="buddy" role="button" tabindex="0" aria-label="Boneka interaktif. Klik atau seret untuk bermain.">
+            <div class="buddy-shadow"></div>
+            <div class="buddy">
+              <div class="ear left"></div><div class="ear right"></div>
+              <div class="buddy-head"><span class="eye left"></span><span class="eye right"></span><span class="cheek left"></span><span class="cheek right"></span><span class="mouth"></span></div>
+              <div class="arm left"></div><div class="arm right"></div>
+              <div class="body-shape"><div class="belly"></div></div>
+              <div class="leg left"></div><div class="leg right"></div>
+            </div>
+          </div>
+        </div>
+        <div class="tool-tray" aria-label="Pilih interaksi">
+          <button class="tool-btn active" data-tool="boop" type="button"><span class="emoji">👉</span>Boop</button>
+          <button class="tool-btn punch-tool" data-tool="punch" type="button"><span class="emoji">🥊</span>Pukul</button>
+          <button class="tool-btn" data-tool="heart" type="button"><span class="emoji">💗</span>Kirim hati</button>
+          <button class="tool-btn" data-tool="star" type="button"><span class="emoji">⭐</span>Bintang</button>
+          <button class="tool-btn" data-tool="bubble" type="button"><span class="emoji">🫧</span>Gelembung</button>
+          <button class="tool-btn" data-tool="confetti" type="button"><span class="emoji">🎉</span>Konfeti</button>
+          <button class="tool-btn" data-tool="music" type="button"><span class="emoji">🎵</span>Not musik</button>
+        </div>
+        <div class="game-options">
+          <span class="option-label">Suasana</span>
+          <select class="mini-select" id="roomTheme" aria-label="Pilih suasana ruangan">
+            <option value="default">Pastel Dream</option><option value="sunset">Sunset Peach</option><option value="ocean">Ocean Breeze</option><option value="night">Lavender Night</option><option value="garden">Mint Garden</option>
+          </select>
+          <span class="option-label ms-sm-2">Gerakan</span>
+          <select class="mini-select" id="motionMode" aria-label="Pilih gaya gerakan">
+            <option value="soft">Lembut</option><option value="bouncy">Memantul</option><option value="spin">Berputar</option><option value="squash">Squishy</option>
+          </select>
+        </div>
+        <div class="inventory" aria-label="Objek interaktif">
+          <span class="option-label align-self-center me-1">Objek</span>
+          <button class="inventory-btn" data-item="🧸" type="button">🧸 Boneka</button>
+          <button class="inventory-btn" data-item="🎈" type="button">🎈 Balon</button>
+          <button class="inventory-btn" data-item="🪄" type="button">🪄 Tongkat</button>
+          <button class="inventory-btn" data-item="🌸" type="button">🌸 Bunga</button>
+          <button class="inventory-btn" data-item="☁️" type="button">☁️ Awan</button>
+        </div>
+        <div class="control-row">
+          <span class="score-pill">✨ Interaksi: <span id="score">0</span></span>
+          <span class="challenge-banner" id="challenge">Misi: kumpulkan 5 interaksi ✨</span>
+          <div class="d-flex gap-2"><button class="btn btn-outline-secondary rounded-pill btn-sm" id="soundBtn" type="button" aria-pressed="false">🔇 Suara</button><button class="btn btn-outline-secondary rounded-pill btn-sm" id="resetBtn" type="button">Mulai ulang</button><button class="btn btn-soft rounded-pill btn-sm" id="surpriseBtn" type="button">Kejutan kecil ✦</button></div>
+        </div>
+      </section>
+      <p class="small mt-3 mb-0" style="color:var(--muted)">Cara bermain: pilih interaksi, lalu klik atau seret boneka. Coba tombol kejutan untuk animasi acak.</p>
+    </div>
+    <aside class="col-lg-4" id="care">
+      <div class="side-card p-4 mb-3">
+        <div class="d-flex gap-3 align-items-start"><div class="icon-bubble">🌱</div><div><h2 class="h5 fw-bold mb-2">Tidak perlu terburu-buru</h2><p class="mb-0 small" style="color:var(--muted);line-height:1.8">Kamu boleh mengambil jeda kecil. Pilih hal yang terasa nyaman, dan berhenti jika sudah cukup.</p></div></div>
+        <hr style="border-color:var(--line);margin:22px 0">
+        <div class="d-flex gap-3 align-items-start"><div class="icon-bubble">🫶</div><div><h2 class="h6 fw-bold mb-2">Ruang ini untuk hiburan</h2><p class="mb-0 small" style="color:var(--muted);line-height:1.8">Mini game ini dibuat untuk interaksi ringan, bukan pengganti bantuan profesional atau dukungan dari orang tepercaya.</p></div></div>
+      </div>
+      <div class="note-card p-4">
+        <span class="eyebrow mb-3">Pengingat lembut</span>
+        <p class="fs-5 fw-bold mb-2">“Kamu tidak harus menyelesaikan semuanya hari ini.”</p>
+        <p class="small mb-0" style="color:var(--muted)">Satu langkah kecil tetap berarti. ♡</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<section class="container pb-5" id="about">
+  <div class="row"><div class="col-lg-8"><div class="p-4 p-md-5 rounded-4" style="background:#fff;border:1px solid var(--line)"><h2 class="h4 fw-bold">Tentang Ruang Rehat</h2><p class="mb-0" style="color:var(--muted);line-height:1.8">Ruang Rehat adalah prototipe mini game ringan untuk memberi pengunjung aktivitas singkat di dalam website Depressive Feelings. Kamu bisa berinteraksi dengan karakter, melihat animasi kecil, dan kembali membaca materi kapan saja.</p></div></div></div>
+</section>
+<footer class="footer py-4"><div class="container d-flex flex-column flex-md-row justify-content-between gap-2"><span>♡ Depressive Feelings — Ruang Rehat</span><span>Hiburan ringan, jeda yang lembut.</span></div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(() => {
+  const stage = document.getElementById('stage');
+  const buddy = document.getElementById('buddy');
+  const scoreEl = document.getElementById('score');
+  const toast = document.getElementById('toastNote');
+  const challenge = document.getElementById('challenge');
+  const toolButtons = [...document.querySelectorAll('[data-tool]')];
+  const inventoryButtons = [...document.querySelectorAll('[data-item]')];
+  let score = 0, selected = 'boop', motion = 'soft', toastTimer, dragStart = null, soundOn = false, audioCtx;
+  const emojis = {boop:['✨','💫','🌸'],punch:['💥','🥊','⚡','✨'],heart:['💗','💕','💖','💝'],star:['⭐','✨','🌟'],bubble:['🫧','○','◌'],confetti:['🎉','🎊','✨','🌈'],music:['🎵','🎶','🎼']};
+  const messages = ['Pelan-pelan saja ♡','Satu jeda kecil untukmu 🌷','Terima kasih sudah mampir ✨','Semoga momen ini terasa ringan'];
+  function showToast(message) {
+    toast.textContent = message; toast.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
+  }
+  function playTone(freq=520, duration=.09) {
+    if(!soundOn) return;
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
+      osc.frequency.value=freq; osc.type='sine'; gain.gain.value=.035;
+      osc.connect(gain); gain.connect(audioCtx.destination); osc.start();
+      gain.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+duration);
+      osc.stop(audioCtx.currentTime+duration);
+    } catch(e) {}
+  }
+  function popEmoji(x,y,emoji) {
+    const r=stage.getBoundingClientRect(), el=document.createElement('span');
+    el.className='float-item'; el.textContent=emoji;
+    el.style.left=(x-r.left-12)+'px'; el.style.top=(y-r.top-12)+'px';
+    stage.appendChild(el); setTimeout(()=>el.remove(),900);
+  }
+  function animateBuddy() {
+    buddy.classList.remove('wobble','party','spin','squash'); void buddy.offsetWidth;
+    const klass = motion==='bouncy'?'party':motion==='spin'?'spin':motion==='squash'?'squash':'wobble';
+    buddy.classList.add(klass);
+  }
+  function updateChallenge() {
+    const target=5;
+    challenge.textContent=score>=target?'Misi selesai! Hebat ✨':`Misi: kumpulkan ${target-score} interaksi ✨`;
+    if(score>=target && (score-target)%5===0) showToast('Misi tercapai! Kamu berhasil 🌷');
+  }
+  function interact(x,y,tool=selected) {
+    score++; scoreEl.textContent=score; animateBuddy();
+    const list=emojis[tool]||emojis.boop;
+    popEmoji(x,y,list[Math.floor(Math.random()*list.length)]);
+    if(tool==='punch'){
+      buddy.classList.remove('punch-reaction'); void buddy.offsetWidth; buddy.classList.add('punch-reaction');
+      const r=stage.getBoundingClientRect(), impact=document.createElement('span');
+      impact.className='impact-flash'; impact.textContent=['POW!','BAM!','💥','BOOP!'][Math.floor(Math.random()*4)];
+      impact.style.left=(x-r.left)+'px'; impact.style.top=(y-r.top)+'px'; stage.appendChild(impact); setTimeout(()=>impact.remove(),600);
+      showToast(['Pukulan kartun! 💥','POW! Efek lucu saja ✨','Karakter bergoyang! 🥊'][Math.floor(Math.random()*3)]);
+    }
+    playTone(({boop:560,heart:660,star:780,bubble:430,confetti:850,music:740,punch:220})[tool]||520);
+    updateChallenge();
+    if(score%4===0) showToast(messages[Math.floor(Math.random()*messages.length)]);
+  }
+  toolButtons.forEach(btn=>btn.addEventListener('click',()=>{
+    selected=btn.dataset.tool; toolButtons.forEach(b=>b.classList.toggle('active',b===btn));
+    showToast(({boop:'Mode Boop dipilih 👉',heart:'Mode kirim hati 💗',star:'Mode bintang ⭐',bubble:'Mode gelembung 🫧',confetti:'Mode konfeti 🎉',music:'Mode not musik 🎵',punch:'Mode Pukul dipilih 🥊'})[selected]);
+  }));
+  document.getElementById('roomTheme').addEventListener('change',e=>{
+    stage.classList.remove('theme-sunset','theme-ocean','theme-night','theme-garden');
+    if(e.target.value!=='default') stage.classList.add('theme-'+e.target.value);
+    showToast('Suasana ruangan diperbarui ✨');
+  });
+  document.getElementById('motionMode').addEventListener('change',e=>{motion=e.target.value;showToast('Gaya gerakan diubah ♡');});
+  inventoryButtons.forEach(btn=>btn.addEventListener('click',()=>{
+    inventoryButtons.forEach(b=>b.classList.toggle('active',b===btn));
+    const r=stage.getBoundingClientRect();
+    popEmoji(r.left+r.width*(.25+Math.random()*.5),r.top+r.height*(.25+Math.random()*.4),btn.dataset.item);
+    interact(r.left+r.width/2,r.top+r.height/2,selected);
+  }));
+  stage.querySelectorAll('[data-prop]').forEach(btn=>btn.addEventListener('click',e=>{
+    e.stopPropagation(); btn.classList.remove('used'); void btn.offsetWidth; btn.classList.add('used');
+    const r=btn.getBoundingClientRect(); interact(r.left+r.width/2,r.top+r.height/2);
+  }));
+  buddy.addEventListener('click',e=>{
+    if(dragStart&&dragStart.moved){dragStart=null;return;}
+    interact(e.clientX||innerWidth/2,e.clientY||innerHeight/2);
+  });
+  buddy.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();const r=buddy.getBoundingClientRect();interact(r.left+r.width/2,r.top+r.height/2);}
+  });
+  buddy.addEventListener('pointerdown',e=>{dragStart={x:e.clientX,y:e.clientY,moved:false};buddy.setPointerCapture?.(e.pointerId);});
+  buddy.addEventListener('pointermove',e=>{
+    if(!dragStart)return;
+    if(Math.abs(e.clientX-dragStart.x)+Math.abs(e.clientY-dragStart.y)>12)dragStart.moved=true;
+    if(dragStart.moved){
+      const sr=stage.getBoundingClientRect(), br=buddy.getBoundingClientRect();
+      const x=Math.max(5,Math.min(sr.width-br.width-5,e.clientX-sr.left-br.width/2));
+      buddy.style.left=x+'px';buddy.style.bottom='15%';buddy.style.transform='none';
+    }
+  });
+  buddy.addEventListener('pointerup',e=>{if(dragStart&&dragStart.moved)interact(e.clientX,e.clientY);dragStart=null;});
+  document.getElementById('soundBtn').addEventListener('click',e=>{
+    soundOn=!soundOn;e.currentTarget.textContent=soundOn?'🔊 Suara aktif':'🔇 Suara';e.currentTarget.setAttribute('aria-pressed',String(soundOn));
+    if(soundOn)playTone(660);showToast(soundOn?'Suara sederhana diaktifkan':'Suara dimatikan');
+  });
+  document.getElementById('resetBtn').addEventListener('click',()=>{
+    score=0;scoreEl.textContent='0';buddy.style.left='50%';buddy.style.bottom='15%';buddy.style.transform='translateX(-50%)';
+    buddy.classList.remove('party','spin','squash','wobble');updateChallenge();showToast('Mulai lagi kapan saja ♡');
+  });
+  document.getElementById('surpriseBtn').addEventListener('click',()=>{
+    const r=stage.getBoundingClientRect(), party=['🌸','💗','✨','🫧','⭐','🎉','🌈'];
+    for(let i=0;i<12;i++)setTimeout(()=>popEmoji(r.left+r.width*(.12+Math.random()*.76),r.top+r.height*(.2+Math.random()*.55),party[Math.floor(Math.random()*party.length)]),i*65);
+    score+=3;scoreEl.textContent=score;updateChallenge();playTone(880,.16);showToast('Kejutan kecil untukmu! 🌷');
+  });
+  updateChallenge();
+})();
+</script>
+</body>
+</html>
